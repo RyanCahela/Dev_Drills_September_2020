@@ -1,0 +1,19 @@
+html,
+body {
+  inline-size: 100%;
+  block-size: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#board {
+  inline-size: inherit;
+  block-size: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+canvas {
+  border: 2px dashed #212121;
+}
