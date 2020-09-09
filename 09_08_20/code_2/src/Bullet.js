@@ -18,6 +18,13 @@ class Bullet extends Sprite {
       this.isDead = true;
     }
   }
-}
 
+  get x() {
+    return this.position.x;
+  }
+
+  get y() {
+    return this.position.y;
+  }
+}
 export default Bullet;

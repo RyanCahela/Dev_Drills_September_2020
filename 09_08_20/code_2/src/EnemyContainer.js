@@ -1,5 +1,4 @@
-const { Container } = require("./lib");
-import Conatiner from "./lib/Container";
+import Container from "./lib/Container";
 import Enemy from "./Enemy";
 class EnemyContainer extends Container {
   constructor() {
