@@ -15,4 +15,10 @@ function randomOneIn(odds) {
   return randomInt(odds) === 0;
 }
 
-export { randomOneIn, randomFloat, randomInt };
+const math = {
+  randomOneIn,
+  randomInt,
+  randomFloat,
+};
+
+export default math;
