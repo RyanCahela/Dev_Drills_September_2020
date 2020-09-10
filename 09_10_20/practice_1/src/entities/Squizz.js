@@ -4,7 +4,7 @@ import math from "../utils/math";
 const texture = new Texture("./resources/player-walk.png");
 
 class Squizz extends TileSprite {
-  constructor(animationSpeed, controls) {
+  constructor(animationSpeed) {
     super(texture, 32, 32, animationSpeed);
     //animation variables
     this.rate = animationSpeed;
@@ -19,22 +19,40 @@ class Squizz extends TileSprite {
     this.frame = this.frames[this.currentAnimFrame];
 
     //movement variables
-    this.controls = controls;
     this.speed = math.randomInt(20, 100);
+    this.isStunned = false;
+    this.stunDuration = 5;
+    this.currentStunTime = 0;
+  }
+
+  setIsStunned(bool) {
+    this.isStunned = bool;
   }
 
   update(deltaTime, currentTime) {
     //animate
-    this.currentAnimTime += deltaTime;
-    if (this.currentAnimTime > this.rate) {
-      this.currentAnimFrame = ++this.currentAnimFrame % this.frames.length;
-      this.frame = this.frames[this.currentAnimFrame];
-      this.currentAnimTime -= this.rate;
+    if (!this.isStunned) {
+      this.currentAnimTime += deltaTime;
+      if (this.currentAnimTime > this.rate) {
+        this.currentAnimFrame = ++this.currentAnimFrame % this.frames.length;
+        this.frame = this.frames[this.currentAnimFrame];
+        this.currentAnimTime -= this.rate;
+      }
     }
 
     //movement
-    this.position.x = this.controls.position.x;
-    this.position.y = this.controls.position.y;
+    if (this.isStunned) {
+      this.currentStunTime += deltaTime;
+
+      //remove stun after stun duration
+      if (this.currentStunTime > this.stunDuration) {
+        this.setIsStunned(false);
+        this.currentStunTime -= this.stunDuration;
+      }
+      return;
+    }
+
+    this.position.x += this.speed * deltaTime;
   }
 }
 

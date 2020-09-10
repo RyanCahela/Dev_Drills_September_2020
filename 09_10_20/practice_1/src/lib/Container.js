@@ -24,7 +24,7 @@ class Container {
         node.update(deltaTime, currenTime);
       }
 
-      return true;
+      return node.isDead ? false : true;
     });
   }
 }
