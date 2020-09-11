@@ -24,26 +24,25 @@ myGame.add(balls);
 
 myGame.run(() => {
   balls.map((squizz) => {
+    const radiusOfSquizz = 16;
     //wrap around screen
     if (squizz.position.x > WIDTH + 32) {
       squizz.position.x = -32;
       squizz.speed *= 1.1;
     }
 
-    //if squizz clicked second time
-    if (squizz.isStunned && controls.pressed) {
-      if (math.distance(controls.position, squizz.position) < 32) {
+    //handle clicks
+    if (
+      controls.pressed &&
+      math.distance(squizz.position, controls.position) < radiusOfSquizz
+    ) {
+      if (squizz.speed > 0) {
+        squizz.speed = 0;
+      } else {
         squizz.isDead = true;
       }
     }
 
-    //if squizz clicked first time
-    if (controls.pressed) {
-      console.log(controls.pressed);
-      if (math.distance(controls.position, squizz.position) < 32) {
-        squizz.setIsStunned(true);
-      }
-    }
     console.log("outside map", controls.pressed);
   });
   controls.update();

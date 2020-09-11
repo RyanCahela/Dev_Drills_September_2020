@@ -20,7 +20,7 @@ crosshair.anchor = { x: -16, y: -16 };
 for (let i = 0; i < 10; i++) {
   const spaceship = new Sprite(new Texture("./resources/spaceship.png"));
   spaceship.position = { x: i * 50 + 100, y: HEIGHT / 2 };
-  spaceship.pivot = { x: -16, y: -16 };
+  spaceship.pivot = { x: 16, y: 16 };
   spaceship.update = function (deltaTime, currentTime) {
     //wobbly ship
   };
@@ -31,6 +31,6 @@ for (let i = 0; i < 10; i++) {
 game.run((deltaTime) => {
   const rpm = Math.PI * 2 * deltaTime;
   ships.map((ship, index) => {
-    ship.rotation += index * rpm;
+    ship.rotation += rpm;
   });
 });

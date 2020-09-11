@@ -23,33 +23,29 @@ class Squizz extends TileSprite {
     this.isStunned = false;
     this.stunDuration = 5;
     this.currentStunTime = 0;
-  }
-
-  setIsStunned(bool) {
-    this.isStunned = bool;
+    this.anchor = { x: -16, y: -16 };
   }
 
   update(deltaTime, currentTime) {
+    //movement
+    if (this.speed === 0) {
+      this.currentStunTime += deltaTime;
+      //remove stun after stun duration
+      if (this.currentStunTime > this.stunDuration) {
+        this.speed = math.randomInt(20, 100);
+        this.currentStunTime -= this.stunDuration;
+      }
+      return;
+    }
+
     //animate
-    if (!this.isStunned) {
+    if (this.speed !== 0) {
       this.currentAnimTime += deltaTime;
       if (this.currentAnimTime > this.rate) {
         this.currentAnimFrame = ++this.currentAnimFrame % this.frames.length;
         this.frame = this.frames[this.currentAnimFrame];
         this.currentAnimTime -= this.rate;
       }
-    }
-
-    //movement
-    if (this.isStunned) {
-      this.currentStunTime += deltaTime;
-
-      //remove stun after stun duration
-      if (this.currentStunTime > this.stunDuration) {
-        this.setIsStunned(false);
-        this.currentStunTime -= this.stunDuration;
-      }
-      return;
     }
 
     this.position.x += this.speed * deltaTime;

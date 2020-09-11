@@ -1,7 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
 html,
 body {
   margin: 0;
@@ -11,8 +7,8 @@ body {
 }
 
 #board {
-  inline-size: 100%;
-  block-size: 100%;
+  inline-size: inherit;
+  block-size: inherit;
   display: flex;
   justify-content: center;
   align-items: center;

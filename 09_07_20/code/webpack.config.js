@@ -9,7 +9,7 @@ module.exports = {
   devtool: "eval-source-map",
   devServer: {
     contentBase: "./dist",
-    port: 9001,
+    port: 9000,
   },
   module: {
     rules: [
