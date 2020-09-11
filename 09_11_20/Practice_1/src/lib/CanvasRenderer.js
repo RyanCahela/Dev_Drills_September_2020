@@ -25,7 +25,7 @@ class CanvasRenderer {
         }
 
         if (node.anchor) {
-          ctx.translate(node.position.x, node.position.y);
+          ctx.translate(node.anchor.x, node.anchor.y);
         }
 
         if (node.scale) {
@@ -37,7 +37,7 @@ class CanvasRenderer {
           const pivotY = node.pivot.y ? node.pivot.y : 0;
           ctx.translate(pivotX, pivotY);
           ctx.rotation(node.rotation);
-          ctx.translate(-pivotX, pivotY);
+          ctx.translate(-pivotX, -pivotY);
         }
 
         //draw leaf nodes
