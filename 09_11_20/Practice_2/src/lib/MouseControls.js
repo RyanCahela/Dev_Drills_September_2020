@@ -32,7 +32,6 @@ class MouseControls {
   handleMouseDown(e) {
     this.pressed = true;
     this.isDown = true;
-    console.log(this.position);
   }
 
   handleMouseMove(e) {
