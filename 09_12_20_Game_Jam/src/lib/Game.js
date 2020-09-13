@@ -7,6 +7,7 @@ class Game {
     this.scene = new Container();
     this.deltaTime = 0;
     this.timeOfLastFrame = 0;
+    this.isGameOver = false;
     document
       .querySelector(parentElementIdentifier)
       .appendChild(this.renderer.view);
@@ -18,6 +19,10 @@ class Game {
 
   map(callback) {
     this.scene.map(callback);
+  }
+
+  doGameOver() {
+    this.isGameOver = true;
   }
 
   run(callback = () => {}) {

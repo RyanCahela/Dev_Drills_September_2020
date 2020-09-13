@@ -1,7 +1,15 @@
 class Text {
-  constructor(string) {
+  constructor({
+    text = "",
+    styles = {
+      fill: undefined,
+      align: undefined,
+      font: undefined,
+    },
+  }) {
     this.position = { x: 0, y: 0 };
-    this.text = string;
+    this.text = text;
+    this.styles = styles;
   }
 }
 
