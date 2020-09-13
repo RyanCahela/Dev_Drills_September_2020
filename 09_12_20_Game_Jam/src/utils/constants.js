@@ -1,0 +1,15 @@
+const WIDTH = 640;
+const HEIGHT = 300;
+const WIDTH_OF_ENEMY = 32;
+const HEIGHT_OF_ENEMY = 32;
+const WIDTH_OF_PLAYER = 32;
+const HEIGHT_OF_PLAYER = 32;
+
+export {
+  WIDTH,
+  HEIGHT,
+  WIDTH_OF_ENEMY,
+  HEIGHT_OF_ENEMY,
+  WIDTH_OF_PLAYER,
+  HEIGHT_OF_PLAYER,
+};
