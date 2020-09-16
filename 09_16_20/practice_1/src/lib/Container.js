@@ -25,11 +25,15 @@ const Container = () => {
     });
   };
 
+  const getProps = () => {
+    return {
+      nodes,
+      position,
+    };
+  };
+
   return Object.freeze({
-    position,
-    get nodes() {
-      return nodes;
-    },
+    getProps,
     add,
     remove,
     map,

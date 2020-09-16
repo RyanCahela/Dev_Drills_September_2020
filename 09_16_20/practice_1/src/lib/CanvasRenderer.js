@@ -10,8 +10,11 @@ const CanvasRenderer = (width, height) => {
     renderRecursive(container);
 
     function renderRecursive(container) {
-      container.nodes.forEach((node) => {
+      const { nodes } = container.getProps();
+      nodes.forEach((node) => {
+        console.log(node);
         ctx.save();
+
         const {
           position,
           anchor,
@@ -23,6 +26,7 @@ const CanvasRenderer = (width, height) => {
           texture,
           text,
           frame,
+          nodes,
         } = node.getProps();
 
         if (position) {
@@ -74,7 +78,7 @@ const CanvasRenderer = (width, height) => {
         }
 
         //if Container
-        if (node.nodes) {
+        if (nodes) {
           renderRecursive(node);
         }
 
