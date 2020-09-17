@@ -4,7 +4,7 @@ import CanvasRenderer from "./CanvasRenderer";
 const Game = (width, height, parentElementIdentifier) => {
   const scene = Container();
   const renderer = CanvasRenderer(width, height);
-  document.querySelector("#board").appendChild(renderer.view);
+  document.querySelector(parentElementIdentifier).appendChild(renderer.view);
   let deltaTime = 0;
   let timeOfLastFrame = 0;
 
@@ -30,6 +30,7 @@ const Game = (width, height, parentElementIdentifier) => {
     run,
     map,
     add,
+    renderer,
   });
 };
 

@@ -11,6 +11,7 @@ const TileSprite = (params) => {
     if (textureUrl) sprite.setState({ textureUrl });
     if (position) {
       const { x: newX, y: newY } = position;
+
       const newPosition = {
         x: newX ? newX : 0,
         y: newY ? newY : 0,
