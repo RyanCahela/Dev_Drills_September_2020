@@ -26,7 +26,6 @@ const TileMap = (params) => {
         y: Math.floor(index / mapWidthUnits) * tileHeight,
       },
     });
-    console.log(tileSprite);
     container.add(tileSprite);
   });
 
